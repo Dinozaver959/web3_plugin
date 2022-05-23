@@ -41,13 +41,7 @@ export default function Home() {
 
 
         {/* */}
-        <div
-          className='mintButton'
-          data_address='0x9234E442ED4Df8BB53eA2d05311241d8ec522499'
-        >
-        Balance ...
-        </div>
-        <script async type="module" src="./direct/GetETHBalance.js"></script>
+
         
 
 
