@@ -2,6 +2,8 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 //import {GetETHBalance} from '../JS/local_web3'
 
+//import Script from 'next/script'
+
 export default function Home() {
   return (
     <div className={styles.container}>
@@ -38,15 +40,16 @@ export default function Home() {
 
 
 
-        {/* 
+        {/* */}
         <div
           className='mintButton'
           data_address='0x9234E442ED4Df8BB53eA2d05311241d8ec522499'
         >
         Balance ...
         </div>
-        <script type="module" src="./direct/GetETHBalance.js"></script>
-        */}
+        <script async type="module" src="./direct/GetETHBalance.js"></script>
+        
+
 
 
       </main>
