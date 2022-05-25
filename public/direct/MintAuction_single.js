@@ -7,8 +7,7 @@ async function MintAuction_single_(){
 
     const address = element.getAttribute('contract_address');
     const network = element.getAttribute('network');
-    const numtokens = parseInt(element.getAttribute('numtokens'));
-    await MintAuction(address, network, numtokens)
+    await MintAuction(address, network, 1)
     .catch((error) => {
         console.error(error);
         console.log("mint error code: " + error.code);

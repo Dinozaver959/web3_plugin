@@ -7,8 +7,7 @@ async function MintPublic_single_(){
 
     const address = element.getAttribute('contract_address');
     const network = element.getAttribute('network');
-    const numtokens = parseInt(element.getAttribute('numtokens'));
-    await MintPublic(address, network, numtokens)
+    await MintPublic(address, network, 1)
     .catch((error) => {
         console.error(error);
         console.log("mint error code: " + error.code);

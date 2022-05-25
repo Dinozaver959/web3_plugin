@@ -64,8 +64,7 @@ export default function Home() {
         <div
           className='mintButtonPublic_single'
           contract_address='0x1E7Ef48664c2CcF2525B349BAA301B2e44D3FD18'
-          network='rinkeby'     
-          numtokens='1'       
+          network='rinkeby'         
         >
         Public Mint Single (1)
         </div>
@@ -92,7 +91,6 @@ export default function Home() {
           className='mintButtonPresale_single'
           contract_address='0x1E7Ef48664c2CcF2525B349BAA301B2e44D3FD18'
           network='rinkeby'     
-          numtokens='1'       
           collection_name="testdd"
         >
         Presale Mint Single (1)
@@ -130,8 +128,7 @@ export default function Home() {
         <div
           className='mintButtonAuction_single'
           contract_address='0x1E7Ef48664c2CcF2525B349BAA301B2e44D3FD18'
-          network='rinkeby'     
-          numtokens='1'       
+          network='rinkeby'        
         >
         Auction Mint Single (1)
         </div>
@@ -139,6 +136,17 @@ export default function Home() {
         <br/>
 
 
+        <div
+          className='mintButtonAuction_multiple'
+          contract_address='0x1E7Ef48664c2CcF2525B349BAA301B2e44D3FD18'
+          network='rinkeby'          
+        >
+        Auction Mint Multiple (x)
+        </div>
+        <input className='mintButtonAuction_input' type="number" min="0" max="100"
+        />
+        <script async type="module" src="./direct/MintAuction_multiple.js"></script> 
+        <br/>
 
 
       </main>
