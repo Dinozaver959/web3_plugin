@@ -3,7 +3,7 @@ import { ethers } from "./ethers-5.6.esm.min.js";
 
 
 // ------------------------------------------------------------------------------- //
-//                    API style functions for 3rd party websites
+//                      API functions for 3rd party websites
 // ------------------------------------------------------------------------------- //
 
 
@@ -146,7 +146,8 @@ export async function MintPublic(address, network, numTokens){
 }
 
 
-export async function MintPresale(address, network, numTokens, proof){
+export async function MintPresale(address, network, numTokens, collectionName){
+
   await HandleNetworkSwitch(network); 
 
   // read ABI
@@ -161,6 +162,19 @@ export async function MintPresale(address, network, numTokens, proof){
   await provider.send("eth_requestAccounts", []);
   const signer = provider.getSigner();
 
+
+
+  // get the merkle proof for being on the allow list
+  const addressToMint = await signer.getAddress();
+  const proof = await fetch(`https://easylaunchnft.com/api/api-getMerkleProof` + '?id=' + addressToMint + '&collectionName=' + collectionName).then(res => res.json());
+  console.log("proof: " + proof);
+  if(proof == "" || proof == " "){
+    throw ({"message" : "Address is not listed for presale"});
+  }
+
+
+
+
   // initialize with contract
   const contract = await InitializeSmartContract_online(address, network);
 
@@ -171,17 +185,77 @@ export async function MintPresale(address, network, numTokens, proof){
 
     console.log("mint price: " + mintPrice);    
     console.log("numTokens: " + numTokens);
-    let price = ethers.BigNumber.from(mintPrice).mul(numTokens);
+    const price = ethers.BigNumber.from(mintPrice).mul(numTokens);
 
-    const tx = await contract.connect(signer).mintAllowList(numTokens, {
+    const tx = await contract.connect(signer).mintAllowList(numTokens, proof, {
       value: price,
-      proof: proof,
     });
     await tx.wait();
     console.log("minted presale: " + numTokens);
   }
 }
 
+
+export async function GetAuctionPrice(address, network){
+
+  // initialize contract 
+  const contract = await InitializeSmartContract_online(address, network);
+
+  const auctionPrice_big = await contract.getAuctionPrice();
+
+  console.log("auctionPrice_big: " + auctionPrice_big)
+
+  // this 2 steps are done in order to avoid under/overflow - step 1 
+  // and to not end up with 0 - step 2
+  let auctionPrice = ethers.BigNumber.from(auctionPrice_big).div(1e12)
+  let price = auctionPrice / 1000000;
+
+  console.log("auctionPrice: " + price);
+
+  return price;
+}
+
+
+export async function MintAuction(address, network, numTokens){
+
+  await HandleNetworkSwitch(network); 
+
+  //const network = 'homestead';
+  //const provider = new ethers.providers.EtherscanProvider(network, "4P25TGYM4CBH6AKZAUK98ZEXKH9RAYHCKC");
+
+  // read ABI
+  const filePath = "./ABI/abi_24052022.txt";
+  let ABI = getFileContent(filePath, false);
+
+
+  // works with wallet (metamask provider)
+  const provider = new ethers.providers.Web3Provider(
+    window.ethereum,
+    "any"
+  );
+  await provider.send("eth_requestAccounts", []);
+  const signer = provider.getSigner();
+
+  // initialize with contract
+  const contract = await InitializeSmartContract_online(address, network);
+
+
+  if(contract){
+
+    // get the mint price directly from the contract
+    const mintPrice = await contract.getAuctionPrice();
+
+    console.log("mint price: " + mintPrice);    
+    console.log("numTokens: " + numTokens);
+    let price = ethers.BigNumber.from(mintPrice).mul(numTokens);
+
+    const tx = await contract.connect(signer).publicSaleMint(numTokens, {
+      value: price,
+    });
+    await tx.wait();
+    console.log("minted auction: " + numTokens);
+  }
+}
 
 
 // ------------------------------------------------------------------------------- //

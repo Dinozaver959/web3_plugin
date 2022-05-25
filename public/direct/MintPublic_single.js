@@ -1,11 +1,11 @@
 import {MintPublic} from '../local_web3.js';
 
-const element = document.getElementsByClassName('mintButtonPublic_simple')[0];
-element.addEventListener("click", MintPublic_simple_);
+const element = document.getElementsByClassName('mintButtonPublic_single')[0];
+element.addEventListener("click", MintPublic_single_);
 
-async function MintPublic_simple_(){
+async function MintPublic_single_(){
 
-    const address = element.getAttribute('data_address');
+    const address = element.getAttribute('contract_address');
     const network = element.getAttribute('network');
     const numtokens = parseInt(element.getAttribute('numtokens'));
     await MintPublic(address, network, numtokens)
