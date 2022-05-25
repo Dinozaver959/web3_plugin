@@ -6,14 +6,14 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Plug-n-Play mint buttons by EasyLaunchNFT.com</title>
+        <title>Plug-n-Play NFT mint buttons by EasyLaunchNFT.com</title>
         <meta name="description" content="Plug-n-Play mint buttons by EasyLaunchNFT.com" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className={styles.main}>
         <h2 className={styles.title}>
-          Welcome to Plug-n-Play NFT mint buttons by <a href="https://easylaunchnft.com/">EasyLaunchNFT</a>
+          Plug-n-Play NFT mint buttons by <a href="https://easylaunchnft.com/">EasyLaunchNFT</a>
         </h2>
 
 
