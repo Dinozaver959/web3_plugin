@@ -1,15 +1,11 @@
-import {GetETHBalance, GetETHBalance_} from '../local_web3.js';
-
-
-// directly
-//GetETHBalance();
+import {GetETHBalance} from '../local_web3.js';
 
 
 // get the address from the className
-const address = document.getElementsByClassName('mintButton')[0].getAttribute('data_address');
-const balance = await GetETHBalance_(address);
+const address = document.getElementsByClassName('balanceDisplay')[0].getAttribute('data_address');
+const balance = await GetETHBalance(address);
 
-document.getElementsByClassName('mintButton')[0].innerHTML = balance; // "balance: " + balance + " ETH";
+document.getElementsByClassName('balanceDisplay')[0].innerHTML = balance; // "balance: " + balance + " ETH";
 
 
 
