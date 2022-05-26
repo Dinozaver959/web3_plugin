@@ -46,7 +46,8 @@ export default function Home() {
         >
         Total Supply ...
         </div>
-        <script async type="module" src="./direct/GetTotalSupply.js"></script>
+        <script async type="module" src="https://web3-plugin.vercel.app/direct/GetTotalSupply.js"></script>
+        {/* <script async type="module" src="./direct/GetTotalSupply.js"></script> */}
         <br/>
 
 
@@ -57,7 +58,8 @@ export default function Home() {
         >
         Total vs Max Supply ...
         </div>
-        <script async type="module" src="./direct/GetTotalSupplyvsMaxSupply.js"></script>
+        <script async type="module" src="https://web3-plugin.vercel.app/direct/GetTotalSupplyvsMaxSupply.js"></script>
+        {/* <script async type="module" src="./direct/GetTotalSupplyvsMaxSupply.js"></script> */}
         <br/>
 
 
@@ -68,7 +70,8 @@ export default function Home() {
         >
         Public Mint Single (1)
         </div>
-        <script async type="module" src="./direct/MintPublic_single.js"></script> 
+        <script async type="module" src="https://web3-plugin.vercel.app/direct/MintPublic_single.js"></script> 
+        {/* <script async type="module" src="./direct/MintPublic_single.js"></script>  */}
         <br/>
 
 
@@ -81,7 +84,8 @@ export default function Home() {
         </div>
         <input className='mintButtonPublic_input' type="number" min="0" max="100"
         />
-        <script async type="module" src="./direct/MintPublic_multiple.js"></script> 
+        <script async type="module" src="https://web3-plugin.vercel.app/direct/MintPublic_multiple.js"></script> 
+        {/* <script async type="module" src="./direct/MintPublic_multiple.js"></script>  */}
         <br/>
         
 
@@ -95,7 +99,8 @@ export default function Home() {
         >
         Presale Mint Single (1)
         </div>
-        <script async type="module" src="./direct/MintPresale_single.js"></script> 
+        <script async type="module" src="https://web3-plugin.vercel.app/direct/MintPresale_single.js"></script>
+        {/*  <script async type="module" src="./direct/MintPresale_single.js"></script> */} 
         <br/>
         
 
@@ -109,7 +114,8 @@ export default function Home() {
         </div>
         <input className='mintButtonPresale_input' type="number" min="0" max="100"
         />
-        <script async type="module" src="./direct/MintPresale_multiple.js"></script> 
+        <script async type="module" src="https://web3-plugin.vercel.app/direct/MintPresale_multiple.js"></script> 
+        {/* <script async type="module" src="./direct/MintPresale_multiple.js"></script>  */}
         <br/>
 
 
@@ -121,8 +127,34 @@ export default function Home() {
         >
         Auction Price ...
         </div>
-        <script async type="module" src="./direct/GetAuctionPrice.js"></script>
+        <script async type="module" src="https://web3-plugin.vercel.app/direct/GetAuctionPrice.js"></script>
+        {/* <script async type="module" src="./direct/GetAuctionPrice.js"></script> */}
         <br/>
+
+
+        <div
+          className='auctionStepSize'
+          contract_address='0x1E7Ef48664c2CcF2525B349BAA301B2e44D3FD18'
+          network='rinkeby'
+        >
+        Auction Step Size ...
+        </div>
+        <script async type="module" src="https://web3-plugin.vercel.app/direct/GetAuctionStepSize.js"></script> 
+        {/* <script async type="module" src="./direct/GetAuctionStepSize.js"></script> */}
+        <br/>
+
+
+        <div
+          className='auctionTimeUntilNextStep'
+          contract_address='0x1E7Ef48664c2CcF2525B349BAA301B2e44D3FD18'
+          network='rinkeby'
+        >
+        Auction Time Until Next Step ...
+        </div>
+        <script async type="module" src="https://web3-plugin.vercel.app/direct/GetAuctionTimeUntilNextStep.js"></script> 
+        {/* <script async type="module" src="./direct/GetAuctionTimeUntilNextStep.js"></script> */}
+        <br/>
+        
 
 
         <div
@@ -132,7 +164,8 @@ export default function Home() {
         >
         Auction Mint Single (1)
         </div>
-        <script async type="module" src="./direct/MintAuction_single.js"></script> 
+        <script async type="module" src="https://web3-plugin.vercel.app/direct/MintAuction_single.js"></script> 
+        {/*  <script async type="module" src="./direct/MintAuction_single.js"></script>  */}
         <br/>
 
 
@@ -145,7 +178,8 @@ export default function Home() {
         </div>
         <input className='mintButtonAuction_input' type="number" min="0" max="100"
         />
-        <script async type="module" src="./direct/MintAuction_multiple.js"></script> 
+        <script async type="module" src="https://web3-plugin.vercel.app/direct/MintAuction_multiple.js"></script> 
+        {/* <script async type="module" src="./direct/MintAuction_multiple.js"></script>  */}
         <br/>
 
 

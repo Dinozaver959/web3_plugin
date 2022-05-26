@@ -198,9 +198,7 @@ export async function MintPresale(address, network, numTokens, collectionName){
 
 export async function GetAuctionPrice(address, network){
 
-  // initialize contract 
   const contract = await InitializeSmartContract_online(address, network);
-
   const auctionPrice_big = await contract.getAuctionPrice();
 
   console.log("auctionPrice_big: " + auctionPrice_big)
@@ -213,6 +211,47 @@ export async function GetAuctionPrice(address, network){
   console.log("auctionPrice: " + price);
 
   return price;
+}
+
+export async function GetAuctionStepSize(address, network){
+
+  const contract = await InitializeSmartContract_online(address, network);
+  const auctionStepSize_big = await contract.AUCTION_DROP_PER_STEP();
+
+  console.log("auctionStepSize_big: " + auctionStepSize_big)
+
+  // this 2 steps are done in order to avoid under/overflow - step 1 
+  // and to not end up with 0 - step 2
+  let auctionStepSize = ethers.BigNumber.from(auctionStepSize_big).div(1e12)
+  let step = auctionStepSize / 1000000;
+
+  console.log("auctionStepSize: " + step);
+
+  return step;
+}
+
+export async function GetTimeUntilNextStep(address, network){
+
+  const contract = await InitializeSmartContract_online(address, network);
+  const auctionStartTime = await contract.auctionSaleStartTime();
+  const auctionLength = await contract.AUCTION_PRICE_CURVE_LENGTH();
+  const auctionStepLength = await contract.AUCTION_DROP_INTERVAL();
+  // console.log("auctionStartTime: " + auctionStartTime)
+
+  const timeNow = Math.floor(Date.now() / 1000);
+  //console.log("timeNow: " + timeNow);
+
+  const timePassedSinceStart = timeNow - auctionStartTime;
+  //console.log("timePassedSinceStart: " + timePassedSinceStart)
+  
+  const timeUntilNextStep = timePassedSinceStart % auctionStepLength;
+  console.log("timeUntilNextStep: " + timeUntilNextStep);
+
+  if(timePassedSinceStart > auctionLength){
+    return 0;
+  } else {
+    return timeUntilNextStep;
+  }
 }
 
 
