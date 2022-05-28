@@ -1,7 +1,7 @@
 import {MintPublic} from '../local_web3.js';
 
-const element = document.getElementsByClassName('mintButtonPublic_multiple')[0];
-const element_input = document.getElementsByClassName('mintButtonPublic_input')[0];
+const element = document.getElementById('mintButtonPublic_multiple');
+const element_input = document.getElementById('mintButtonPublic_input');
 
 element.addEventListener("click", MintPublic_multiple_);
 
@@ -19,8 +19,6 @@ async function MintPublic_multiple_(){
             console.log("mint error message: " + error.message);
           });
     }
-
-    //document.getElementsByClassName('mintButtonPublic')[0].innerHTML = supply; // "balance: " + balance + " ETH";
 }
 
 

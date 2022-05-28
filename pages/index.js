@@ -22,14 +22,12 @@ export default function Home() {
           id='balanceDisplay_888Club'
           contract_address='0x9234E442ED4Df8BB53eA2d05311241d8ec522499'
           font_size="24px"
-          color="white"
+          color="red"
         >
         Balance...
         </div>
-        {/*<script async type="module" src="https://web3-plugin.vercel.app/direct/GetETHBalance_888Club.js"></script>*/}
-         <script async type="module" src="./direct/GetETHBalance_888Club.js"></script>  
-         <style>
-        </style>
+        <script async type="module" src="https://web3-plugin.vercel.app/direct/GetETHBalance_888Club.js"></script>
+        {/* <script async type="module" src="./direct/GetETHBalance_888Club.js"></script>  */}
         <br/>
 
 

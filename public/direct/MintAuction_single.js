@@ -1,6 +1,6 @@
 import {MintAuction} from '../local_web3.js';
 
-const element = document.getElementsByClassName('mintButtonAuction_single')[0];
+const element = document.getElementById('mintButtonAuction_single');
 element.addEventListener("click", MintAuction_single_);
 
 async function MintAuction_single_(){
@@ -13,8 +13,6 @@ async function MintAuction_single_(){
         console.log("mint error code: " + error.code);
         console.log("mint error message: " + error.message);
     });
-
-    //document.getElementsByClassName('mintButtonPublic')[0].innerHTML = supply; // "balance: " + balance + " ETH";
 }
 
 

@@ -1,7 +1,7 @@
 import {MintAuction} from '../local_web3.js';
 
-const element = document.getElementsByClassName('mintButtonAuction_multiple')[0];
-const element_input = document.getElementsByClassName('mintButtonAuction_input')[0];
+const element = document.getElementById('mintButtonAuction_multiple');
+const element_input = document.getElementById('mintButtonAuction_input');
 
 element.addEventListener("click", MintAuction_multiple_);
 

@@ -1,7 +1,7 @@
 import {MintPresale} from '../local_web3.js';
 
-const element = document.getElementsByClassName('mintButtonPresale_multiple')[0];
-const element_input = document.getElementsByClassName('mintButtonPresale_input')[0];
+const element = document.getElementById('mintButtonPresale_multiple');
+const element_input = document.getElementById('mintButtonPresale_input');
 element.addEventListener("click", MintPresale_multiple_);
 
 async function MintPresale_multiple_(){
