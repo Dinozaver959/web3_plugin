@@ -36,7 +36,7 @@ async function InitializeSmartContract_online(address, network){
   const provider = new ethers.providers.EtherscanProvider(network, "4P25TGYM4CBH6AKZAUK98ZEXKH9RAYHCKC");
 
   // read ABI
-  const filePath = "./ABI/abi_24052022.txt";
+  const filePath = "https://web3-plugin.vercel.app/ABI/abi_24052022.txt";
   let ABI = getFileContent(filePath, false);
 
   // initialize with contract
@@ -80,7 +80,7 @@ export async function MintPublic(address, network, numTokens){
   //const provider = new ethers.providers.EtherscanProvider(network, "4P25TGYM4CBH6AKZAUK98ZEXKH9RAYHCKC");
 
   // read ABI
-  const filePath = "./ABI/abi_24052022.txt";
+  const filePath = "https://web3-plugin.vercel.app/ABI/abi_24052022.txt";
   let ABI = getFileContent(filePath, false);
 
 
@@ -151,7 +151,7 @@ export async function MintPresale(address, network, numTokens, collectionName){
   await HandleNetworkSwitch(network); 
 
   // read ABI
-  const filePath = "./ABI/abi_24052022.txt";
+  const filePath = "https://web3-plugin.vercel.app/ABI/abi_24052022.txt";
   let ABI = getFileContent(filePath, false);
 
   // works with wallet (metamask provider)
@@ -263,7 +263,7 @@ export async function MintAuction(address, network, numTokens){
   //const provider = new ethers.providers.EtherscanProvider(network, "4P25TGYM4CBH6AKZAUK98ZEXKH9RAYHCKC");
 
   // read ABI
-  const filePath = "./ABI/abi_24052022.txt";
+  const filePath = "https://web3-plugin.vercel.app/ABI/abi_24052022.txt";
   let ABI = getFileContent(filePath, false);
 
 
